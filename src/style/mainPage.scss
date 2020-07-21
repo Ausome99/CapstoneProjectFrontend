@@ -1,0 +1,58 @@
+.main-page-wrapper {
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+    height: 100vh;
+    width: 100vw;
+    margin: 0px;
+    padding: 0px;
+    background-color: $wood-table;
+
+    .navigation-bar-wrapper {
+        display: flex;
+        justify-content: space-between;
+        height: 50px;
+        width: 100%;
+        border-bottom: 2px solid $aquamarine;
+        margin-bottom: 10px;
+        background-color: $wood-table;
+    }
+
+    .adventure-wrapper {
+        display: flex;
+        justify-content: space-around;
+        height: 90%;
+        width: 100%;
+
+        .adventure-text-area-wrapper {
+            border: 1.5px solid $aquamarine;
+            width: 60%;
+            box-shadow: 7px 10px 26px -1px rgba(0,0,0,0.54);
+            background: radial-gradient(circle, rgb(255,236,158) 35%, rgb(255,221,138) 50%,rgb(210,170,119) 68%, rgb(201,145,87) 85%, rgb(225,173,109) 100%);
+        }
+
+        .adventure-button-wrapper {
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            width: 15%;
+            background-color: $wood-table;
+        }
+    }
+}
+
+.choices-wrapper {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    box-shadow: 7px 10px 26px -1px rgba(0,0,0,0.54);
+    margin-top: 10px;
+    margin-bottom: 10px;
+
+    button {
+        height: 60px;
+        background-color: $steel;
+        color: $aquamarine;
+        font-size: 1.5rem;
+    }
+}

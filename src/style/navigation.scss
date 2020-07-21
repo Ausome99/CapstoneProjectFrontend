@@ -1,0 +1,16 @@
+.navigation-wrapper {
+    display: flex;
+    justify-content: space-between;
+    width: 100%;
+    margin-left: 20px;
+    margin-right: 20px;
+    
+    button {
+        width: 50px;
+        height: 30px;
+        background-color: $steel;
+        color: $aquamarine;
+        font-size: 1.1rem;
+        border: none;
+    }
+}

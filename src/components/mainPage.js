@@ -23,7 +23,7 @@ export default class MainPage extends Component {
 
     handlePageChange(pageName) {
         // https://capstone-project-api-alm.herokuapp.com
-        fetch(`http://127.0.0.1:5000/page/get/${pageName}`, { method: "GET" })
+        fetch(`https://capstone-project-api-alm.herokuapp.com/page/get/${pageName}`, { method: "GET" })
         .then(response => response.json())
         .then(data => {
             this.setState({

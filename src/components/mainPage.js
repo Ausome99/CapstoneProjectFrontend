@@ -22,7 +22,8 @@ export default class MainPage extends Component {
     }
 
     handlePageChange(pageName) {
-        fetch(`https://capstone-project-api-alm.herokuapp.com/page/get/${pageName}`, { method: "GET" })
+        // https://capstone-project-api-alm.herokuapp.com
+        fetch(`http://127.0.0.1:5000/page/get/${pageName}`, { method: "GET" })
         .then(response => response.json())
         .then(data => {
             this.setState({
@@ -46,12 +47,14 @@ export default class MainPage extends Component {
 
     render() {
         return (
-            <div className='main-page-wrapper'>
-                <div className="navigation-bar-wrapper"><Navigation /></div>
-                <div className="adventure-wrapper">
-                    <div className="adventure-text-area-wrapper">{this.state.text}</div>
-                    <div className="adventure-button-wrapper">
-                        {this.renderChoices()}
+            <div className='everything-wrapper'>
+                <div className='main-page-wrapper'>
+                    <div className="navigation-bar-wrapper"><Navigation /></div>
+                    <div className="adventure-wrapper">
+                        <div className="adventure-text-area-wrapper">{this.state.text}</div>
+                        <div className="adventure-button-wrapper">
+                            {this.renderChoices()}
+                        </div>
                     </div>
                 </div>
             </div>

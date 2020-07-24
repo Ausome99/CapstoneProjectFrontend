@@ -4,12 +4,12 @@ import Cookies from "js-cookie";
 import Choices from "./choices";
 import Navigation from "./navigation";
 
-const baseUrl="https://capstone-project-api-alm.herokuapp.com/"
+
 // const baseUrl="http://127.0.0.1:5000/"
 export default class MainPage extends Component {
     constructor(props) {
         super(props);
-
+        this.baseUrl="https://capstone-project-api-alm.herokuapp.com/"
         if (!Cookies.get("username")) {
             props.history.push("/")
           }
@@ -32,7 +32,7 @@ export default class MainPage extends Component {
     }
 
     handlePageChange(pageName) {
-        fetch(`${baseUrl}page/get/${pageName}`, { method: "GET" })
+        fetch(`${this.baseUrl}page/get/${pageName}`, { method: "GET" })
         .then(response => response.json())
         .then(data => {
             this.setState({
@@ -56,7 +56,7 @@ export default class MainPage extends Component {
 
     handleSave() {
         const cookieUsername = Cookies.get("username")
-        fetch(`${baseUrl}save`, { 
+        fetch(`${this.baseUrl}save`, { 
             method: "POST",
             headers: { "content-type": "application/json" },
             body: JSON.stringify({
@@ -73,7 +73,7 @@ export default class MainPage extends Component {
 
     handleLoad() {
         const cookieUsername = Cookies.get("username")
-        fetch(`${baseUrl}load/${cookieUsername}`, { method: "GET" })
+        fetch(`${this.baseUrl}load/${cookieUsername}`, { method: "GET" })
         .then(response => response.json())
         .then(data => {
             console.log(data)

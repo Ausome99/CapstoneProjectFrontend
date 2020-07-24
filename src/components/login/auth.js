@@ -4,12 +4,12 @@ import Cookies from "js-cookie";
 import Login from "./login";
 import Signup from "./signup";
 
-const baseUrl="https://capstone-project-api-alm.herokuapp.com/"
+
 // const baseUrl="http://127.0.0.1:5000/"
 export default class Auth extends Component {
     constructor(props) {
         super(props);
-
+        this.baseUrl="https://capstone-project-api-alm.herokuapp.com/"
         if (Cookies.get("username")) {
            props.history.push("/page") 
         }
@@ -45,7 +45,7 @@ export default class Auth extends Component {
             this.setState({ errorMessage: "mismatched passwords"})
         }
         else {
-            fetch(`${baseUrl}user/create`, {
+            fetch(`${this.baseUrl}user/create`, {
                 method: "POST",
                 headers: { "content-type": "application/json" },
                 body: JSON.stringify({
@@ -80,7 +80,7 @@ export default class Auth extends Component {
             this.setState({ errorMessage: "blank field" })
         }
         else {
-            fetch(`${baseUrl}user/verification`, {
+            fetch(`${this.baseUrl}user/verification`, {
                 method: "POST",
                 headers: { "content-type": "application/json" },
                 body: JSON.stringify({

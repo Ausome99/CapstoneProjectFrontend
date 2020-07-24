@@ -69,4 +69,18 @@
     }
 }  
     
- 
+@media (max-width: 615px) {
+    .adventure-text-area-wrapper {
+        font-size: .6em;
+    }
+
+    .everything-wrapper {
+        .choices-wrapper {
+            button {
+                font-size: .6em;
+                margin-left: 5px;
+                margin-right: 15px;
+            }
+        }
+    }
+} 

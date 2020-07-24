@@ -1,11 +1,18 @@
 import React, { Component } from 'react';
+import Cookies from "js-cookie";
 
 import Choices from "./choices";
 import Navigation from "./navigation";
 
+const baseUrl="https://capstone-project-api-alm.herokuapp.com/"
+// const baseUrl="http://127.0.0.1:5000/"
 export default class MainPage extends Component {
     constructor(props) {
         super(props);
+
+        if (!Cookies.get("username")) {
+            props.history.push("/")
+          }
 
         this.state = {
             pageName: "intro_page",
@@ -15,6 +22,9 @@ export default class MainPage extends Component {
 
         this.handlePageChange = this.handlePageChange.bind(this);
         this.renderChoices = this.renderChoices.bind(this);
+        this.handleLogout = this.handleLogout.bind(this);
+        this.handleSave = this.handleSave.bind(this);
+        this.handleLoad = this.handleLoad.bind(this);
     }
 
     componentDidMount() {
@@ -22,8 +32,7 @@ export default class MainPage extends Component {
     }
 
     handlePageChange(pageName) {
-        // https://capstone-project-api-alm.herokuapp.com
-        fetch(`https://capstone-project-api-alm.herokuapp.com/page/get/${pageName}`, { method: "GET" })
+        fetch(`${baseUrl}page/get/${pageName}`, { method: "GET" })
         .then(response => response.json())
         .then(data => {
             this.setState({
@@ -45,11 +54,52 @@ export default class MainPage extends Component {
         })
     }
 
+    handleSave() {
+        const cookieUsername = Cookies.get("username")
+        fetch(`${baseUrl}save`, { 
+            method: "POST",
+            headers: { "content-type": "application/json" },
+            body: JSON.stringify({
+                username: cookieUsername,
+                page_name: this.state.pageName
+            }) 
+        })
+        .then(response => response.json())
+        .then(data => {
+            console.log(data)
+        })
+        .catch(error => console.log(error))
+    }
+
+    handleLoad() {
+        const cookieUsername = Cookies.get("username")
+        fetch(`${baseUrl}load/${cookieUsername}`, { method: "GET" })
+        .then(response => response.json())
+        .then(data => {
+            console.log(data)
+            this.setState({
+                pageName: data.page_name,
+            })
+            this.handlePageChange(this.state.pageName);
+        })
+        .catch(error => console.log(error))
+    }
+
+    handleLogout() {
+        Cookies.remove("username")
+        this.props.history.push("/")
+      }
+
     render() {
         return (
             <div className='everything-wrapper'>
                 <div className='main-page-wrapper'>
-                    <div className="navigation-bar-wrapper"><Navigation /></div>
+                    <div className="navigation-bar-wrapper"><Navigation 
+                                                                handleLogout={this.handleLogout}
+                                                                handleSave={this.handleSave}
+                                                                handleLoad={this.handleLoad}
+                                                            />
+                                                            </div>
                     <div className="adventure-wrapper">
                         <div className="adventure-text-area-wrapper">{this.state.text}</div>
                         <div className="adventure-button-wrapper">

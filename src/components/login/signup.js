@@ -10,31 +10,38 @@ export default function signup(props) {
     }
 
     return (
-        <form onSubmit={props.handleSubmit}>
-            <input 
-                type="text" 
-                name="usernameInput" 
-                placeholder="Username" 
-                value={props.usernameInput}
-                onChange={props.handleChange}
-            />
-            <input 
-                type="password"
-                name="passwordInput" 
-                placeholder="Password" 
-                value={props.passwordInput}
-                onChange={props.handleChange}
-            />
-            <input 
-                type="password"
-                name="passwordConfirmInput" 
-                placeholder="Confirm Password" 
-                value={props.passwordConfirmInput}
-                onChange={props.handleChange}
-            />
-            <button>Sign Up</button>
-            <p className="error">{errorMessage[props.errorMessage]}</p>
-            <p onClick={props.handleClick}>Already have an account? Click here to login!</p>
-        </form>
+        <div className="form-wrapper">
+            <h3 className="welcome-message">Welcome To The Sword Of Nyonan!</h3>
+            <form onSubmit={props.handleSubmit}>
+                <div className="input-wrapper">
+                    <input 
+                        type="text" 
+                        name="usernameInput" 
+                        placeholder="Username" 
+                        value={props.usernameInput}
+                        onChange={props.handleChange}
+                    />
+                    <input 
+                        type="password"
+                        name="passwordInput" 
+                        placeholder="Password" 
+                        value={props.passwordInput}
+                        onChange={props.handleChange}
+                    />
+                    <input 
+                        type="password"
+                        name="passwordConfirmInput" 
+                        placeholder="Confirm Password" 
+                        value={props.passwordConfirmInput}
+                        onChange={props.handleChange}
+                    />
+                    <button>Sign Up</button>
+                </div>
+                <div className="message-wrapper">
+                    <p className="error">{errorMessage[props.errorMessage]}</p>
+                    <p onClick={props.handleClick}>Already have an account? Click here to login!</p>
+                </div>
+            </form>
+        </div>    
     )
 }

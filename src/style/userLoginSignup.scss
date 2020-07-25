@@ -1,0 +1,65 @@
+.form-wrapper {
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+    width: 100vw;
+    height: 100vh;
+    background-color: $wood-table;
+
+    .welcome-message {
+        display: flex;
+        justify-content: center;
+        color: $aquamarine;
+        margin-bottom: 60px;
+    }
+
+    .input-wrapper {
+        display: flex;
+        justify-content: center;
+        height: 100%;
+        width: 100%;
+
+        input {
+            border: 1.5px solid $aquamarine;
+            width: 150px;
+            height: 20px;
+            background-color: $wood-table;
+            color: $aquamarine;
+        }
+
+        button {
+            border: 1.5px solid $aquamarine;
+            min-width: 60px;
+            height: 25px;
+            background-color: $wood-table;
+            color: $aquamarine;
+        }
+    }
+
+    .message-wrapper {
+        display: flex;
+        justify-content: center;
+        font-size: .8em;
+        color: $gold;
+    }
+}
+
+@media (max-width: 615px) {
+    .welcome-message {
+        margin-left: 30px;
+        margin-right: 20px;
+        font-size: .7em;
+    }
+
+    .input-wrapper {
+        input {
+            max-width: 70px;
+        }
+    }
+
+    .message-wrapper {
+        margin-left: 30px;
+        margin-right: 20px;
+        font-size: .5em;
+    }
+}

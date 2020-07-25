@@ -7,8 +7,8 @@ import Navigation from "./navigation";
 export default class MainPage extends Component {
     constructor(props) {
         super(props);
-        // this.baseUrl="https://capstone-project-api-alm.herokuapp.com/"
-        this.baseUrl="http://127.0.0.1:5000/"
+        this.baseUrl="https://capstone-project-api-alm.herokuapp.com/"
+        // this.baseUrl="http://127.0.0.1:5000/"
         if (!Cookies.get("username")) {
             props.history.push("/")
           }

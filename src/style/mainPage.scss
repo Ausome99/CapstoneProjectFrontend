@@ -70,16 +70,31 @@
 }  
     
 @media (max-width: 615px) {
-    .adventure-text-area-wrapper {
-        font-size: .6em;
-    }
-
     .everything-wrapper {
-        .choices-wrapper {
-            button {
-                font-size: .6em;
-                margin-left: 5px;
-                margin-right: 15px;
+        width: 100vw;
+        padding: 20px;
+
+        .main-page-wrapper{
+            .adventure-wrapper {
+                display: flex;
+                justify-content: center;
+                flex-direction: column;
+                width: 100%;
+                margin: 0px;
+            
+                .adventure-text-area-wrapper {
+                    font-size: .6em;
+                    width: 88%;
+                    margin: 0px;
+                    box-shadow: none;
+                }
+            }
+            .choices-wrapper {
+                button {
+                    font-size: .6em;
+                    margin-left: 5px;
+                    margin-right: 15px;
+                }
             }
         }
     }

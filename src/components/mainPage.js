@@ -16,7 +16,8 @@ export default class MainPage extends Component {
         this.state = {
             pageName: "intro_page",
             text: "",
-            choices: []
+            choices: [],
+            saveSuccessful: "Save"
         }
 
         this.handlePageChange = this.handlePageChange.bind(this);
@@ -37,7 +38,8 @@ export default class MainPage extends Component {
             this.setState({
                 pageName: data.page_name,
                 text: data.text,
-                choices: data.choices
+                choices: data.choices,
+                saveSuccessful: "Save"
             })
         })
         .catch(error => console.log(error))
@@ -66,6 +68,11 @@ export default class MainPage extends Component {
         .then(response => response.json())
         .then(data => {
             console.log(data)
+            if (data.result == "success") {
+                this.setState({
+                    saveSuccessful: "Saved!"
+                })
+            }
         })
         .catch(error => console.log(error))
     }
@@ -97,6 +104,7 @@ export default class MainPage extends Component {
                                                                 handleLogout={this.handleLogout}
                                                                 handleSave={this.handleSave}
                                                                 handleLoad={this.handleLoad}
+                                                                saveSuccessful={this.state.saveSuccessful}
                                                             />
                                                             </div>
                     <div className="adventure-wrapper">

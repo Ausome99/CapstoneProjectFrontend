@@ -11,7 +11,7 @@ export default function signup(props) {
 
     return (
         <div className="form-wrapper">
-            <h3 className="welcome-message">Welcome To The Sword Of Nyonan!</h3>
+            <h3 className="welcome-message">Welcome To The Sword Of Nyovan!</h3>
             <form onSubmit={props.handleSubmit}>
                 <div className="input-wrapper">
                     <input 
